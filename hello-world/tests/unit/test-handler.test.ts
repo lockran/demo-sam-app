@@ -73,14 +73,14 @@ describe('Unit test for app handler', function () {
             },
             succeed: function (messageOrObject: any): void {
                 throw new Error('Function not implemented.');
-            }
+            },
         };
-        const result: APIGatewayProxyResult = await lambdaHandler(event,context);
+        const result: APIGatewayProxyResult = await lambdaHandler(event, context);
 
         expect(result.statusCode).toEqual(200);
         expect(result.body).toEqual(
             JSON.stringify({
-                message: 'hello world',
+                message: 'hello world, feature test',
             }),
         );
     });
