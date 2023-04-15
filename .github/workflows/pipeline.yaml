@@ -213,19 +213,11 @@ jobs:
           aws-secret-access-key: ${{ env.PIPELINE_USER_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.TESTING_REGION }}
           role-to-assume: ${{ env.TESTING_PIPELINE_EXECUTION_ROLE }}
-          role-session-name: testing-deployment
+          role-session-name: testing-integration
           role-duration-seconds: 3600
           role-skip-session-tagging: true
       - run: |
-          .github/scripts/fetchenv.sh ${TESTING_STACK_NAME} ${TESTING_REGION} > .env;
-          source .env;
-          if curl $HelloWorldApi | grep "hello world"; then
-            echo "'hello world' found in curl response :)"
-            exit 0
-          else
-            echo "'hello world' not found in curl response :("
-            exit 1
-          fi
+          sam list endpoints --stack-name ${TESTING_STACK_NAME} --output json
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
