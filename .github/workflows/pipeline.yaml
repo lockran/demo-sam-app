@@ -206,18 +206,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Assume the testing pipeline user role
-        uses: aws-actions/configure-aws-credentials@v1-node16
-        with:
-          aws-access-key-id: ${{ env.PIPELINE_USER_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.PIPELINE_USER_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.TESTING_REGION }}
-          role-to-assume: ${{ env.TESTING_PIPELINE_EXECUTION_ROLE }}
-          role-session-name: testing-integration
-          role-duration-seconds: 3600
-          role-skip-session-tagging: true
       - run: |
-          sam list endpoints --stack-name ${TESTING_STACK_NAME} --output json
+          # Run integration tests here
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
