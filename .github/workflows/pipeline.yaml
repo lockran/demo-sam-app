@@ -207,7 +207,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: "Run Integration Tests"
-        working-directory: scripts
+        working-directory: hello-world
         shell: bash
         run: npm ci && npm run test
 
