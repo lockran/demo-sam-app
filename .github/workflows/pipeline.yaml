@@ -207,15 +207,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-        .github/scripts/fetchenv.sh ${TESTING_STACK_NAME} ${TESTING_REGION} > .env;
-        source .env;
-        if curl $HelloWorldApi | grep "hello world"; then
-          echo "'hello world' found in curl response :)"
-          exit 0
-        else
-          echo "'hello world' not found in curl response :("
-          exit 1
-        fi
+          .github/scripts/fetchenv.sh ${TESTING_STACK_NAME} ${TESTING_REGION} > .env;
+          source .env;
+          if curl $HelloWorldApi | grep "hello world"; then
+            echo "'hello world' found in curl response :)"
+            exit 0
+          else
+            echo "'hello world' not found in curl response :("
+            exit 1
+          fi
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
