@@ -59,7 +59,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent, context: Contex
         response = {
             statusCode: 200,
             body: JSON.stringify({
-                message: 'hello world',
+                message: 'hello world, feature test',
             }),
         };
         logger.info(`Successful response from API enpoint: ${event.path}`, response.body);
