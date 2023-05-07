@@ -41,6 +41,20 @@ jobs:
       - name: Run Unit tests
         working-directory: hello-world
         run: npm ci && npm run test
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
 
   delete-feature:
     if: startsWith(github.event.ref, 'feature') && github.event_name == 'delete'
