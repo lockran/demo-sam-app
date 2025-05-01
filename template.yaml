@@ -10,10 +10,16 @@ Globals:
   Function:
     Timeout: 3
     MemorySize: 128
-
     Tracing: Active
+    Tags:
+      Application: sam-app
+      Environment: dev
+      Owner: AndyLoughran
+      CostCenter: 123456789
+      Component: serverless-demos
   Api:
     TracingEnabled: true
+  
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
