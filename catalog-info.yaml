@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-sam-app
+  description: "A demo app showing a simple hello world application, deployed using sam pipelines."
+  tags:
+    - backend
+    - api
+    - demo
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "@lockran"
+  location:
+    url: "https://github.com/lockran/demo-sam-app"  # Replace with your repository URL
