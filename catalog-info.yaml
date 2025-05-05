@@ -11,6 +11,6 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: "@lockran"
+  owner: "@LockranDevs"
   location:
     url: "https://github.com/lockran/demo-sam-app"  # Replace with your repository URL
