@@ -32,7 +32,7 @@ Parameters:
     Default: "GitHub"
   FullRepositoryId:
     Type: String
-    Default: "andylockran/demo-sam-app"
+    Default: "lockran/demo-sam-app"
   MainGitBranch:
     Type: String
     Default: "main"
