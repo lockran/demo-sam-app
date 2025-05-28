@@ -576,6 +576,12 @@ Resources:
             Value: !Ref TestingImageRepository
           - Name: FEATURE_BRANCH_NAME
             Value: !Ref FeatureGitBranch
+      Cache:
+        CacheNamespace: SecurePipelines
+        Location: !Sub ${PipelineArtifactsBucket}/cache
+        Modes: 
+          - LOCAL_CUSTOM_CACHE
+        Type: S3
       ServiceRole: !GetAtt CodeBuildServiceRole.Arn
       Source:
         Type: CODEPIPELINE
@@ -646,6 +652,7 @@ Resources:
       Source:
         Type: CODEPIPELINE
         BuildSpec: pipeline/buildspec_deploy.yml
+
 Outputs:
   CodeStarConnectionArn:
     Condition: CreateConnection

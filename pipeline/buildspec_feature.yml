@@ -19,3 +19,10 @@ phases:
                     --s3-bucket ${TESTING_ARTIFACT_BUCKET}
                     --no-fail-on-empty-changeset
                     --role-arn ${TESTING_CLOUDFORMATION_EXECUTION_ROLE}
+
+cache:
+  paths:
+    - /root/.cache/pip/**/*
+    - /root/.m2/**/*
+    - /root/.gradle/caches/**/*
+    - /root/.npm/**/*

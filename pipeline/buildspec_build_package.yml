@@ -20,6 +20,13 @@ phases:
       - sam package --s3-bucket ${PROD_ARTIFACT_BUCKET}
                     --region ${PROD_REGION}
                     --output-template-file packaged-prod.yaml
+cache:
+  paths:
+    - /root/.cache/pip/**/*
+    - /root/.m2/**/*
+    - /root/.gradle/caches/**/*
+    - /root/.npm/**/*
+
 artifacts:
   files:
     - packaged-test.yaml
