@@ -39,7 +39,7 @@ jobs:
     permissions:
       security-events: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run Unit tests
         working-directory: hello-world
         run: npm ci && npm run test
@@ -62,7 +62,7 @@ jobs:
     if: startsWith(github.event.ref, 'feature') && github.event_name == 'delete'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
@@ -96,7 +96,7 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
@@ -128,7 +128,7 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
@@ -187,7 +187,7 @@ jobs:
     needs: [build-and-package]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
@@ -221,7 +221,7 @@ jobs:
     needs: [deploy-testing]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: |
           # Run integration tests here
 
@@ -233,7 +233,7 @@ jobs:
     # https://docs.github.com/en/actions/reference/environments
     # environment: <configured-environment>
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
