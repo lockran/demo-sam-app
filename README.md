@@ -183,3 +183,4 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 Testing the PR process
 Adding a second check with custom checkov policies
+Now testing private
