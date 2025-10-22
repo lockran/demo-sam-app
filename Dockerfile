@@ -1,1 +1,1 @@
-FROM andylockran86/andy@sha256:3a41a50cd3b315770f75b397874aa945fcc4ac1cd9e4e024697945292fab6abd
+FROM node:20-alpine@sha256:3bc9a4c4cc25cfde1e8f946341c85f333c36517aafda829b4bb7e785e9b5995c
