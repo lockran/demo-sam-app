@@ -25,5 +25,8 @@ jobs:
       uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
+        always-auth: true
     - run: npm ci
       working-directory: ./hello-world/
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
