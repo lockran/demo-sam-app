@@ -27,13 +27,3 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
       working-directory: ./hello-world/
-    - run: npx @cyclonedx/cyclonedx-npm  > sbom.json
-      working-directory: ./hello-world/
-    - uses: DependencyTrack/gh-upload-sbom@v3
-      with:
-        serverHostname: 'depapi.zrmt.com'
-        apiKey: ${{ secrets.DEPENDENCY_API_KEY }}
-        projectName: 'Demo SAM App'
-        projectVersion: 'main'
-        bomFilename: "./hello-world/sbom.json"
-        autoCreate: true
