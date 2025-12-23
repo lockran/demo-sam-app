@@ -16,13 +16,18 @@ jobs:
       uses: actions/setup-node@v6
     - run: npm ci
       working-directory: ./hello-world/
-    - run: npx @cyclonedx/cyclonedx-npm  > sbom.json
-      working-directory: ./hello-world/
+    - name: Anchore SBOM Action
+      uses: anchore/sbom-action@v0
+      with:
+        artifact-name: sbom.json
+        format: cyclonedx-json
+        path: ./hello-world/
+        output-file: /tmp/sbom.json 
     - uses: DependencyTrack/gh-upload-sbom@v3
       with:
-        serverHostname: 'depapi.zrmt.com'
-        apiKey: ${{ secrets.DEPENDENCY_API_KEY }}
-        projectName: 'Demo SAM App'
-        projectVersion: 'main'
-        bomFilename: "./hello-world/sbom.json"
-        autoCreate: true
+        serverhostname: 'depapi.zrmt.com'
+        apikey: ${{ secrets.DEPENDENCY_API_KEY }}
+        projectname: 'Demo SAM App'
+        projectversion: 'main'
+        bomfilename: "./hello-world/sbom.json"
+        autocreate: true
